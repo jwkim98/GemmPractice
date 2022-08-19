@@ -27,8 +27,8 @@ void testGemm(std::size_t m, std::size_t n, std::size_t k, float alpha, float be
                 arrC[i] = dist(gen);
     }
 
-    blaze::DynamicMatrix<float, blaze::rowMajor> a(m, n, 0.0f);
-    blaze::DynamicMatrix<float, blaze::rowMajor> b(n, k, 0.0f);
+    blaze::DynamicMatrix<float, blaze::rowMajor> a(m, k, 0.0f);
+    blaze::DynamicMatrix<float, blaze::rowMajor> b(k, n, 0.0f);
     blaze::DynamicMatrix<float, blaze::rowMajor> c(m, n, 0.0f);
 
     for(std::size_t i = 0; i < m; ++i)
@@ -49,20 +49,31 @@ void testGemm(std::size_t m, std::size_t n, std::size_t k, float alpha, float be
 
     std::cout<<"elapsed time : "<<std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count()<<std::endl;
 
-    c = a*b + c;
+    c = alpha*a*b + beta*c;
     for(std::size_t i = 0; i < m; ++i)
         for(std::size_t j = 0; j < n; ++j)
         {
             CHECK(std::abs(c(i, j) - arrC[i*n + j]) < std::numeric_limits<float>::epsilon());
         }
-    }
-
-TEST_CASE("Simple test")
-{
-    CHECK(Add(2, 3) == 5);
 }
 
 TEST_CASE("Gemm")
 {
-    testGemm(10, 10, 10, 1.0f, 1.0f);
+    std::random_device rd;
+    std::default_random_engine engine(rd());
+    std::uniform_int_distribution<std::size_t> intDist(100, 200);
+    std::uniform_real_distribution<float> realDist(-5.0, 5.0);
+
+    for (auto i = 0; i < 10; ++i)
+    {
+        std::size_t M = intDist(engine);
+        std::size_t N = intDist(engine);
+        std::size_t K = intDist(engine);
+        float alpha = realDist(engine);
+        float beta = realDist(engine);
+
+        std::cout << "#" << i << " - M: " << M << ", N: " << N << ", K: " << K << ", alpha: " << alpha << ", beta: " << beta << std::endl;
+
+        testGemm(M, N, K, alpha, beta);
+    }
 }
