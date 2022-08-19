@@ -6,6 +6,6 @@ void Gemm(float* a, float* b, float* c, float alpha, float beta, std::size_t m, 
         for(std::size_t nIdx = 0; nIdx < n; ++nIdx)
             for(std::size_t kIdx = 0; kIdx < k; ++kIdx)
             {
-                //! Write here!
+                //! implement here!
             }
 }

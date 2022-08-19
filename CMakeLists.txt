@@ -1,11 +1,14 @@
 # CMake version
 cmake_minimum_required(VERSION 3.8.2 FATAL_ERROR)
-
+set(CMAKE_CXX_STANDARD 17)
 # Include cmake modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 
 # Declare project
 project(KernelTutorial)
+
+# import blaze
+
 
 # Set output directories
 set(DEFAULT_CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})

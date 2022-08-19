@@ -1,6 +1,8 @@
 # Target name
 set(target UnitTests)
 
+find_package(blaze)
+
 # Includes
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -34,9 +36,14 @@ target_compile_definitions(${target}
     PRIVATE
 )
 
-# Link libraries
+if( blaze_FOUND )
+   add_library( blaze_target INTERFACE )
+   target_link_libraries( blaze_target INTERFACE blaze::blaze )
+
+endif()    
 target_link_libraries(${target}
-    PRIVATE
-    ${DEFAULT_LINKER_OPTIONS}
-    KernelTutorial
-    doctest) 
+PRIVATE
+blaze_target
+${DEFAULT_LINKER_OPTIONS}
+KernelTutorial
+doctest) 
