@@ -9,27 +9,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/utilForever/KernelTutorial.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/utilForever/KernelTutorial/alerts/)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/utilForever/KernelTutorial.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/utilForever/KernelTutorial/context:cpp)
 
-KernelTutorial is a simple template for C++ language based project.
-
-## Support CI
-
-- Appveyor
-- Travis CI
-- Azure Pipelines
-
-## Support Tool
-
-- Codecov
-- Codacy
-- LGTM
-
-## How To Contribute
-
-Contributions are always welcome, either reporting issues/bugs or forking the repository and then issuing pull requests when you have completed some additional coding that you feel will be beneficial to the main project. If you are interested in contributing in a more dedicated capacity, then please contact me.
-
-## Contact
-
-You can contact me via e-mail (utilForever at gmail.com). I am always happy to answer questions or help with any issues you might have, and please be sure to share any additional work or your creations with me, I love seeing what other people are making.
+KernelTutorial is a simple tutorial for getting used to implementing kernels
 
 ## References
 
@@ -41,7 +21,7 @@ You can contact me via e-mail (utilForever at gmail.com). I am always happy to a
 
 The class is licensed under the [MIT License](http://opensource.org/licenses/MIT):
 
-Copyright &copy; 2019 [Chris Ohk](http://www.github.com/utilForever).
+Copyright &copy; 2022 [Justin Kim](http://www.github.com/jwkim98).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
