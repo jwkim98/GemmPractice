@@ -1,6 +1,8 @@
 # Target name
 set(target KernelTutorial)
 
+find_package(OpenMP REQUIRED)
+
 # Define
 set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
@@ -33,6 +35,7 @@ set_target_properties(${target}
 # Compile options
 target_compile_options(${target}
     PRIVATE
+    /openmp:llvm
 
     PUBLIC
     ${DEFAULT_COMPILE_OPTIONS}
@@ -46,6 +49,7 @@ target_link_libraries(${target}
     PUBLIC
     ${DEFAULT_LINKER_OPTIONS}
 	${DEFAULT_LIBRARIES}
+    OpenMP::OpenMP_CXX
 
     INTERFACE
 )
